@@ -37,11 +37,10 @@
 					<img src="images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post">
 					<span class="login100-form-title">
 						Tipo Permiso
 					</span>
-                    <form class="col-4 p-3" method="post">
 
 					<div class="wrap-input100">
 						<input class="input100" type="text" name="id_tipo_permiso" id="id_tipo_permiso" placeholder="id_tipo_permiso" readonly>
@@ -60,9 +59,8 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Registrar
-						</button>
+					<input class="login100-form-btn" type="submit" name="validar" value="Registrar">
+					<input type="hidden" name="MM_insert" value="formreg">
 					</div>
 
 					<div class="text-center p-t-12">

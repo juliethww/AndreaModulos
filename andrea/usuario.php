@@ -45,7 +45,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Usuarios ANDREA</title>
+	<title>Usuarios</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -125,7 +125,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-					<input type="submit" name="validar" value="Registrar">
+					<input class="login100-form-btn" type="submit" name="validar" value="Registrar">
 					<input type="hidden" name="MM_insert" value="formreg">
 					</div>
 
