@@ -4,6 +4,32 @@
     $db = new Database();
     $con =$db->conectar();
 ?>
+<?php
+    if ((isset($_POST["MM_insert"]))&&($_POST["MM_insert"]=="formreg"))
+    {
+      $tipo_permiso = $_POST['tipo_permiso'];
+
+      $sql = $con -> prepare ("SELECT * FROM tipo_permiso where tipo_permiso ='$tipo_permiso'");
+      $sql -> execute();
+      $fila = $sql -> fetchAll(PDO::FETCH_ASSOC);
+
+      if ($tipo_permiso=="")
+      {
+        echo '<script>alert ("EXISTEN DATOS VACIOS"); </script>';
+        echo '<script>window.location="tip_user.php"</script>';
+      }
+      else if($fila){
+        echo '<script>alert ("TIPO DE USUARIO YA REGISTRADO"); </script>';
+        echo '<script>window.location="tip_user.php"</script>';
+      } 
+      else{
+        $insertSQL = $con->prepare ("INSERT INTO tipo_permiso(tipo_permiso) VALUES ('$tipo_permiso')");
+        $insertSQL->execute();
+        echo '<script>alert ("registro exitoso"); </script>';
+        echo '<script>window.location="tip_user.php"</script>';
+      }
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +69,7 @@
 					</span>
 
 					<div class="wrap-input100">
-						<input class="input100" type="text" name="id_tipo_permiso" id="id_tipo_permiso" placeholder="id_tipo_permiso" readonly>
+						<input class="input100" type="number" name="id_tipo_permiso" id="id_tipo_permiso" placeholder="id_tipo_permiso" readonly>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -51,7 +77,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese Tipo Permiso">
-						<input class="input100" type="text" name="tipo_usuario" id="tipo_usuario" placeholder="Tipo Usuario">
+						<input class="input100" type="text" name="tipo_permiso" id="tipo_permiso" placeholder="Tipo Permiso">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
