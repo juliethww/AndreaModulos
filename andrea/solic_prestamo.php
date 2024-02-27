@@ -13,13 +13,13 @@
       $valor_cuotas= $_POST['valor_cuotas'];
 	  $cant_cuotas= $_POST['cant_cuotas'];
 
-      $sql = $con -> prepare ("SELECT * FROM solic_prestamo where id_prestamo='$id_prestamo	'");
+      $sql = $con -> prepare ("SELECT * FROM solic_prestamo where id_prestamo='$id_prestamo'");
       $sql -> execute();
       $fila = $sql -> fetchAll(PDO::FETCH_ASSOC);
       
     
     
-      if($id_prestamo=="" || $id_usuario=="" || $monto_solicitado=="" || $valor_cuotas=="" || $cant_cuotas=="")
+      if($id_usuario=="" || $monto_solicitado=="" || $valor_cuotas=="" || $cant_cuotas=="")
       {
         echo '<script>alert ("EXISTEN DATOS VACIOS"); </script>';
         echo '<script>window.location="usuarios.php"</script>';
@@ -32,9 +32,8 @@
             
       else
       {
-        $pass_cifrado=password_hash($contrasena,PASSWORD_DEFAULT,array("pass"=>12));
-        $insertSQL = $con->prepare ("INSERT INTO solic_prestamo(id_prestamo,id_usuario,monto_solicitado,valor_cuotas,cant_cuotas) 
-        VALUES ('$id_prestamo','$id_usuario', '$monto_solicitado','$valor_cuotas','$cant_cuotas')");
+        $insertSQL = $con->prepare ("INSERT INTO solic_prestamo(id_prestamo,id_usuario, monto_solicitado,valor_cuotas,cant_cuotas) 
+        VALUES ('$id_prestamo','$id_usuario', '$monto_solicitado', '$valor_cuotas','$cant_cuotas')");
         $insertSQL->execute();
         echo '<script>alert ("registro exitoso"); </script>';
         echo '<script>window.location="usuarios.php"</script>';
@@ -80,7 +79,7 @@
 					</span>
 
 					<div class="wrap-input100">
-						<input class="input100" type="text" name="id_prestamo" id="id_prestamo" placeholder="id_prestamo" readonly>
+						<input class="input100" type="number" name="id_prestamo" id="id_prestamo" placeholder="id_prestamo" readonly>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -103,7 +102,6 @@
 						</span>
 					</div>
 
-                  
 
                     <div class="wrap-input100 validate-input" data-validate = "Ingrese Valor Cuotas">
 						<input class="input100" type="text" name="valor_cuotas" id="valor_cuotas" placeholder="Valor Cuotas">
@@ -128,10 +126,10 @@
 
 					<div class="text-center p-t-12">
 						<span class="txt1">
-							Forgot
+							
 						</span>
-						<a class="txt2" href="#">
-							Username / Password?
+						<a class="txt2" href="admin.php">
+							Volver
 						</a>
 					</div>
 				</form>
