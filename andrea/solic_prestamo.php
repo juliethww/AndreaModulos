@@ -10,6 +10,7 @@
       $id_prestamo= $_POST['id_prestamo'];
       $id_usuario= $_POST['id_usuario'];
       $monto_solicitado= $_POST['monto_solicitado'];
+	  $id_estado= $_POST['id_estado'];
       $valor_cuotas= $_POST['valor_cuotas'];
 	  $cant_cuotas= $_POST['cant_cuotas'];
 
@@ -19,10 +20,10 @@
       
     
     
-      if($id_usuario=="" || $monto_solicitado=="" || $valor_cuotas=="" || $cant_cuotas=="")
+      if($id_usuario=="" || $monto_solicitado=="" || $id_estado=="" || $valor_cuotas=="" || $cant_cuotas=="")
       {
         echo '<script>alert ("EXISTEN DATOS VACIOS"); </script>';
-        echo '<script>window.location="usuarios.php"</script>';
+        echo '<script>window.location="solic_prestamo.php"</script>';
       }
       else if($fila){
         echo '<script>alert ("USUARIO O TELEFONO YA REGISTRADO"); </script>';
@@ -32,8 +33,8 @@
             
       else
       {
-        $insertSQL = $con->prepare ("INSERT INTO solic_prestamo(id_prestamo,id_usuario, monto_solicitado,valor_cuotas,cant_cuotas) 
-        VALUES ('$id_prestamo','$id_usuario', '$monto_solicitado', '$valor_cuotas','$cant_cuotas')");
+        $insertSQL = $con->prepare ("INSERT INTO solic_prestamo(id_prestamo,id_usuario, monto_solicitado,id_estado,valor_cuotas,cant_cuotas) 
+        VALUES ('$id_prestamo','$id_usuario', '$monto_solicitado', '$id_estado', '$valor_cuotas','$cant_cuotas')");
         $insertSQL->execute();
         echo '<script>alert ("registro exitoso"); </script>';
         echo '<script>window.location="usuarios.php"</script>';
@@ -101,6 +102,22 @@
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input">
+					<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					<select class="input100" name="id_estado">
+							<?php
+							$control = $con->prepare("SELECT * FROM estado WHERE id_estado BETWEEN 6 AND 10");
+							$control->execute();
+							while ($fila = $control->fetch(PDO::FETCH_ASSOC)) {
+								echo "<option value='" . $fila['id_estado'] . "'>" . $fila['estado'] . "</option>";
+							}
+							?>
+						</select>
 					</div>
 
 
