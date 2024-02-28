@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sidebar</title>
 </head>
 <body id="body-pd">
     <header class="header" id="header">
@@ -12,26 +12,32 @@
     </header>
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
-            <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">BBBootstrap</span> </a>
-                <div class="nav_list"> <a href="#" class="nav_link active"> 
+            <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">A.K.A </span> </a>
+                <div class="nav_list"> <a href="../andrea/admin.php" class="nav_link active"> 
 					<i class='bx bx-grid-alt nav_icon'></i> 
-					<span class="nav_name">Dashboard</span></a> 
-					<a href="#" class="nav_link"> 
+                    <span class="nav_name">Inicio</span></a>
+
+
+					<a href="../andrea/usuario.php" class="nav_link"> 
 						<i class='bx bx-user nav_icon'></i> 
-						<span class="nav_name">Users</span> </a> 
-						<a href="#" class="nav_link"> 
-							<i class='bx bx-message-square-detail nav_icon'></i> 
-							<span class="nav_name">Messages</span> </a> 
-							<a href="#" class="nav_link"> 
+						<span class="nav_name">Agregar Usuarios</span> </a>
+
+
+						<a href="../andrea/tipos_usuario.php" class="nav_link"> 
+                            <i class='bx bx-message-square-detail nav_icon'></i> 
+							<span class="nav_name">Agregar Tipos Usuario</span> </a> 
+							
+                            
+                            <a href="../andrea/tipo_permiso.php" class="nav_link"> 
 								<i class='bx bx-bookmark nav_icon'></i> 
-								<span class="nav_name">Bookmark</span> </a> 
-								<a href="#" class="nav_link"> 
+								<span class="nav_name">Permisos</span> </a> 
+								
+                                
+                                <a href="../andrea/solic_prestamo.php" class="nav_link"> 
 									<i class='bx bx-folder nav_icon'></i> 
-									<span class="nav_name">Files</span> </a> 
-									<a href="#" class="nav_link"> 
-										<i class='bx bx-bar-chart-alt-2 nav_icon'></i> 
-										<span class="nav_name">Stats</span> </a> </div>
-            </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
+									<span class="nav_name">Solicitud de Prestamos</span> </a> 
+									</div>
+            </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Cerrar sesion</span> </a>
         </nav>
     </div>
 </html>

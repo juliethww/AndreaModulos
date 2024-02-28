@@ -61,11 +61,12 @@
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/tipo_usu.css">
+	<link rel="stylesheet" type="text/css" href="css/sidebar.css">
 	
 <!--===============================================================================================-->
 </head>
 <body>
-	
+	<?php include("sidebar/sidebar.php") ?>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -156,6 +157,7 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<script src="js/sidebar.js"></script>
 
 </body>
 </html>

@@ -9,7 +9,10 @@
     {
       $id_usuario= $_POST['id_usuario'];
       $nombre= $_POST['nombre'];
+	  $id_tipo_cargo= $_POST['id_tipo_cargo'];
+	  $id_estado= $_POST['id_estado'];
       $correo= $_POST['correo'];
+	  $id_tipo_usuario= $_POST['id_tipo_usuario'];
       $contrasena= $_POST['contrasena'];
       $nit_empresa= $_POST['nit_empresa'];
 
@@ -19,25 +22,25 @@
       
     
     
-      if($id_usuario=="" || $nombre=="" || $correo=="" || $contrasena=="" || $nit_empresa=="")
+      if($id_usuario=="" || $nombre=="" || $id_tipo_cargo=="" || $id_estado=="" || $correo=="" || $contrasena=="" || $nit_empresa=="")
       {
-        echo '<script>alert ("EXISTEN DATOS VACIOS"); </script>';
-        echo '<script>window.location="usuarios.php"</script>';
+        echo '<script>alert ("EXISTEN CAMPOS VACIOS"); </script>';
+        echo '<script>window.location="usuario.php"</script>';
       }
       else if($fila){
-        echo '<script>alert ("USUARIO O TELEFONO YA REGISTRADO"); </script>';
-        echo '<script>window.location="usuarios.php"</script>';
+        echo '<script>alert ("USUARIO YA REGISTRADO"); </script>';
+        echo '<script>window.location="usuario.php"</script>';
       }
 
             
       else
       {
         $pass_cifrado=password_hash($contrasena,PASSWORD_DEFAULT,array("pass"=>12));
-        $insertSQL = $con->prepare ("INSERT INTO usuario(id_usuario,nombre, correo,contrasena,nit_empresa) 
-        VALUES ('$id_usuario','$nombre', '$correo', '$contrasena','$nit_empresa')");
+        $insertSQL = $con->prepare ("INSERT INTO usuario(id_usuario,nombre,id_tipo_cargo,id_estado,correo,id_tipo_usuario,contrasena,nit_empresa) 
+        VALUES ('$id_usuario','$nombre', '$id_tipo_cargo', '$id_estado', '$correo', '$id_tipo_usuario', '$contrasena','$nit_empresa')");
         $insertSQL->execute();
-        echo '<script>alert ("registro exitoso"); </script>';
-        echo '<script>window.location="usuarios.php"</script>';
+        echo '<script>alert ("Usuario Creado con Exito"); </script>';
+        echo '<script>window.location="usuario.php"</script>';
       }
     }
 
@@ -62,7 +65,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/tipo_usu.css">
 	<link rel="stylesheet" type="text/css" href="css/sidebar.css">
 <!--===============================================================================================-->
 </head>
@@ -96,6 +99,38 @@
 						</span>
 					</div>
 
+					<div class="wrap-input100 validate-input">
+					<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					<select class="input100" name="id_tipo_cargo">
+							<?php
+							$control = $con->prepare("SELECT * FROM tipo_cargo");
+							$control->execute();
+							while ($fila = $control->fetch(PDO::FETCH_ASSOC)) {
+								echo "<option value='" . $fila['id_tipo_cargo'] . "'>" . $fila['cargo'] . "</option>";
+							}
+							?>
+						</select>
+					</div>
+
+					<div class="wrap-input100 validate-input">
+					<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					<select class="input100" name="id_estado">
+							<?php
+							$control = $con->prepare("SELECT * FROM estado where id_estado <= 5");
+							$control->execute();
+							while ($fila = $control->fetch(PDO::FETCH_ASSOC)) {
+								echo "<option value='" . $fila['id_estado'] . "'>" . $fila['estado'] . "</option>";
+							}
+							?>
+						</select>
+					</div>
+
 
 					
 
@@ -105,6 +140,22 @@
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input">
+					<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					<select class="input100" name="id_tipo_usuario">
+							<?php
+							$control = $con->prepare("SELECT * FROM tipos_usuarios");
+							$control->execute();
+							while ($fila = $control->fetch(PDO::FETCH_ASSOC)) {
+								echo "<option value='" . $fila['id_tipo_usuario'] . "'>" . $fila['tipo_usuario'] . "</option>";
+							}
+							?>
+						</select>
 					</div>
 
 
@@ -131,10 +182,10 @@
 
 					<div class="text-center p-t-12">
 						<span class="txt1">
-							Forgot
+							
 						</span>
-						<a class="txt2" href="#">
-							Username / Password?
+						<a class="txt2" href="admin.php">
+							Volver
 						</a>
 					</div>
 				</form>
@@ -158,7 +209,6 @@
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 	<script src="js/sidebar.js"></script>
-	
 	
 
 
