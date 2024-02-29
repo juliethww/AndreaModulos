@@ -51,9 +51,14 @@ $con = $db->conectar();
                     echo "<td>{$fila['correo']}</td>";
                     echo "<td>{$fila['tipo_usuario']}</td>";
                     echo "<td>{$fila['nit_empresa']}</td>";
-                    echo "</tr>";
+                    
                 }
+                
                 ?>
+                 <td>
+                <a href="update_usuario.php?id=<?php echo $fila['id_usuario']; ?>" class="btn" onclick="window.open('update_usuario.php?id=<?php echo $fila['id_usuario']; ?>','','width=500,height=500,toolbar=NO'); return false;">Actualizar</a>
+                
+                </td>
 
             </tbody>
         </table>
