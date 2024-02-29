@@ -84,6 +84,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese su documento	">
+					<label for="exampleInputEmail1" class="form-label">Documento</label>
 						<input class="input100" type="number" name="id_usuario" id="id_usuario" placeholder="Documento">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -92,7 +93,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese su Nombre">
-						<input class="input100" type="text" name="nombre" id="nombre" placeholder="Nombre">
+						<input class="input100" type="text" name="nombre" id="nombre" placeholder="Nombre" require pattern="[A-Za-z]+" title="Por favor, solo ingrese letras">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -159,13 +160,14 @@
 					</div>
 
 
-					<div class="wrap-input100 validate-input" data-validate = "Ingrese su Contraseña">
-						<input class="input100" type="password" name="contrasena" id="contrasena" placeholder="Contraseña">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
+					<div class="wrap-input100 validate-input" data-validate="Ingrese su Contraseña">
+    					<input class="input100" type="password" name="contrasena" id="contrasena" placeholder="Contraseña" pattern="^(?=.*\d)(?=.*[a-zA-Z]).{10,}$" title="La contraseña debe tener al menos 10 caracteres alfanuméricos">
+    					<span class="focus-input100"></span>
+    					<span class="symbol-input100">
+        					<i class="fa fa-lock" aria-hidden="true"></i>
+    					</span>
 					</div>
+
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese NIT Empresa">
 						<input class="input100" type="number" name="nit_empresa" id="nit_empresa" placeholder="NIT">
@@ -183,6 +185,18 @@
 			</div>
 		</div>
 	</div>
+	<script>
+function validarContrasena() {
+    var contrasena = document.getElementById('contrasena').value;
+
+    if (contrasena.length < 10) {
+        alert('La contraseña debe tener al menos 10 caracteres alfanuméricos');
+        return false;
+    }
+
+    return true;
+}
+</script>
 	<!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

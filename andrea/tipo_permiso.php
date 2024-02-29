@@ -78,7 +78,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese Tipo Permiso">
-						<input class="input100" type="text" name="tipo_permiso" id="tipo_permiso" placeholder="Tipo Permiso">
+						<input class="input100" type="text" name="tipo_permiso" id="tipo_permiso" placeholder="Tipo Permiso" require pattern="[A-Za-z]+" title="Por favor, solo ingrese letras">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
