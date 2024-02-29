@@ -16,17 +16,17 @@
       if ($tipo_permiso=="")
       {
         echo '<script>alert ("EXISTEN DATOS VACIOS"); </script>';
-        echo '<script>window.location="tip_user.php"</script>';
+        echo '<script>window.location="tipo_permiso.php"</script>';
       }
       else if($fila){
         echo '<script>alert ("TIPO DE USUARIO YA REGISTRADO"); </script>';
-        echo '<script>window.location="tip_user.php"</script>';
+        echo '<script>window.location="tipo_permiso.php"</script>';
       } 
       else{
         $insertSQL = $con->prepare ("INSERT INTO tipo_permiso(tipo_permiso) VALUES ('$tipo_permiso')");
         $insertSQL->execute();
         echo '<script>alert ("registro exitoso"); </script>';
-        echo '<script>window.location="tip_user.php"</script>';
+        echo '<script>window.location="tipo_permiso.php"</script>';
       }
     }
 ?>

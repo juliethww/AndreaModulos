@@ -27,7 +27,7 @@
       }
       else if($fila){
         echo '<script>alert ("USUARIO O TELEFONO YA REGISTRADO"); </script>';
-        echo '<script>window.location="usuarios.php"</script>';
+        echo '<script>window.location="solic_prestamo.php"</script>';
       }
 
             
@@ -80,14 +80,6 @@
 						Solicitud prestamo
 					</span>
 
-					<div class="wrap-input100">
-						<input class="input100" type="number" name="id_prestamo" id="id_prestamo" placeholder="id_prestamo" readonly>
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-					</div>
-
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese Documento">
 						<input class="input100" type="number" name="id_usuario" id="id_usuario" placeholder="Documento">
 						<span class="focus-input100"></span>
@@ -96,12 +88,12 @@
 						</span>
 					</div>
 
-                    <div class="wrap-input100 validate-input" data-validate = "Ingrese Monto">
-						<input class="input100" type="text" name="monto_solicitado" id="monto_solicitado" placeholder="Monto Solicitado">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
+					<div class="wrap-input100 validate-input" data-validate="Ingrese Monto">
+    					<input class="input100" type="number" name="monto_solicitado" id="monto_solicitado" placeholder="Monto Solicitado" oninput="calcular()">
+    					<span class="focus-input100"></span>
+    					<span class="symbol-input100">
+        					<i class="fa fa-envelope" aria-hidden="true"></i>
+    					</span>
 					</div>
 
 					<div class="wrap-input100 validate-input">
@@ -121,20 +113,20 @@
 					</div>
 
 
-                    <div class="wrap-input100 validate-input" data-validate = "Ingrese Valor Cuotas">
-						<input class="input100" type="text" name="valor_cuotas" id="valor_cuotas" placeholder="Valor Cuotas">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
+                    <div class="wrap-input100" data-validate="Ingrese Valor Cuotas">
+    					<input class="input100" type="number" name="valor_cuotas" id="valor_cuotas" placeholder="Valor Cuotas" readonly>
+    					<span class="focus-input100"></span>
+    					<span class="symbol-input100">
+        					<i class="fa fa-envelope" aria-hidden="true"></i>
+    					</span>
 					</div>
 
-                    <div class="wrap-input100 validate-input" data-validate = "Cantidad de Cuotas">
-						<input class="input100" type="number" name="cant_cuotas" id="cant_cuotas" placeholder="Cantidad Cuotas">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
+                    <div class="wrap-input100 validate-input" data-validate="Cantidad de Cuotas">
+    					<input class="input100" type="number" name="cant_cuotas" id="cant_cuotas" placeholder="Cantidad Cuotas" oninput="calcular()">
+    					<span class="focus-input100"></span>
+    					<span class="symbol-input100">
+        					<i class="fa fa-envelope" aria-hidden="true"></i>
+    					</span>
 					</div>
 					
 					<div class="container-login100-form-btn">
@@ -154,7 +146,23 @@
 			</div>
 		</div>
 	</div>
-	
+	<script type="text/javascript">
+    function calcular() {
+        try {
+            var monto_solicitado = parseInt(document.getElementById("monto_solicitado").value) || 0;
+            var cant_cuotas = parseInt(document.getElementById("cant_cuotas").value) || 0;
+            var valor_cuotas = monto_solicitado / cant_cuotas;
+
+            // Formatea el número con puntos para representar miles y millones
+            document.getElementById("valor_cuotas").value = numberWithCommas(valor_cuotas.toFixed(0));
+        } catch (e) {}
+    }
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+</script>
+
 	
 
 	
@@ -178,3 +186,4 @@
 
 </body>
 </html>
+
