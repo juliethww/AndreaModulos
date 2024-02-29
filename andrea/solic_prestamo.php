@@ -80,13 +80,14 @@
 						Solicitud prestamo
 					</span>
 
-					<div class="wrap-input100"= "ID">
-						<input class="input100" type="text" name="id_prestamo" id="id_prestamo" placeholder="ID" readonly>
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
+					<div class="wrap-input100" style="display: none;">
+    					<input class="input100" type="text" name="id_prestamo" id="id_prestamo" placeholder="ID" readonly>
+   						<span class="focus-input100"></span>
+    					<span class="symbol-input100">
+        					<i class="fa fa-envelope" aria-hidden="true"></i>
+    					</span>
 					</div>
+
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese Documento">
 						<input class="input100" type="number" name="id_usuario" id="id_usuario" placeholder="Documento">
