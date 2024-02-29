@@ -37,7 +37,7 @@
       {
         $pass_cifrado=password_hash($contrasena,PASSWORD_DEFAULT,array("pass"=>12));
         $insertSQL = $con->prepare ("INSERT INTO usuario(id_usuario,nombre,id_tipo_cargo,id_estado,correo,id_tipo_usuario,contrasena,nit_empresa) 
-        VALUES ('$id_usuario','$nombre', '$id_tipo_cargo', '$id_estado', '$correo', '$id_tipo_usuario', '$contrasena','$nit_empresa')");
+        VALUES ('$id_usuario','$nombre', '$id_tipo_cargo', '$id_estado', '$correo', '$id_tipo_usuario', '$pass_cifrado','$nit_empresa')");
         $insertSQL->execute();
         echo '<script>alert ("Usuario Creado con Exito"); </script>';
         echo '<script>window.location="usuario.php"</script>';
