@@ -179,15 +179,6 @@
 					<input class="login100-form-btn" type="submit" name="validar" value="Registrar">
 					<input type="hidden" name="MM_insert" value="formreg">
 					</div>
-
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							
-						</span>
-						<a class="txt2" href="admin.php">
-							Volver
-						</a>
-					</div>
 				</form>
 			</div>
 		</div>

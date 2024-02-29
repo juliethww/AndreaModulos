@@ -16,17 +16,17 @@
       if ($tipo_usuario=="")
       {
         echo '<script>alert ("EXISTEN DATOS VACIOS"); </script>';
-        echo '<script>window.location="tip_user.php"</script>';
+        echo '<script>window.location="tipos_usuario.php"</script>';
       }
       else if($fila){
         echo '<script>alert ("TIPO DE USUARIO YA REGISTRADO"); </script>';
-        echo '<script>window.location="tip_user.php"</script>';
+        echo '<script>window.location="tipos_usuario.php"</script>';
       } 
       else{
         $insertSQL = $con->prepare ("INSERT INTO tipos_usuarios(tipo_usuario) VALUES ('$tipo_usuario')");
         $insertSQL->execute();
-        echo '<script>alert ("registro exitoso"); </script>';
-        echo '<script>window.location="tip_user.php"</script>';
+        echo '<script>alert ("Registro Exitoso"); </script>';
+        echo '<script>window.location="tipos_usuario.php"</script>';
       }
     }
 ?>
@@ -89,14 +89,7 @@
 					<input type="hidden" name="MM_insert" value="formreg">
 					</div>
 
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							
-						</span>
-						<a class="txt2" href="admin.php">
-							Volver
-						</a>
-					</div>
+				</form>
 			</div>
 		</div>
 	</div>

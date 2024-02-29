@@ -19,13 +19,13 @@
         echo '<script>window.location="tipo_permiso.php"</script>';
       }
       else if($fila){
-        echo '<script>alert ("TIPO DE USUARIO YA REGISTRADO"); </script>';
+        echo '<script>alert ("TIPO DE PERMISO CREADO"); </script>';
         echo '<script>window.location="tipo_permiso.php"</script>';
       } 
       else{
         $insertSQL = $con->prepare ("INSERT INTO tipo_permiso(tipo_permiso) VALUES ('$tipo_permiso')");
         $insertSQL->execute();
-        echo '<script>alert ("registro exitoso"); </script>';
+        echo '<script>alert ("Permiso Creado con Exitoso"); </script>';
         echo '<script>window.location="tipo_permiso.php"</script>';
       }
     }
@@ -90,14 +90,6 @@
 					<input type="hidden" name="MM_insert" value="formreg">
 					</div>
 
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							
-						</span>
-						<a class="txt2" href="admin.php">
-							Volver
-						</a>
-					</div>
 				</form>
 			</div>
 		</div>

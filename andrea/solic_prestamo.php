@@ -26,7 +26,7 @@
         echo '<script>window.location="solic_prestamo.php"</script>';
       }
       else if($fila){
-        echo '<script>alert ("USUARIO O TELEFONO YA REGISTRADO"); </script>';
+        echo '<script>alert ("USUARIO YA REGISTRADO"); </script>';
         echo '<script>window.location="solic_prestamo.php"</script>';
       }
 
@@ -36,8 +36,8 @@
         $insertSQL = $con->prepare ("INSERT INTO solic_prestamo(id_prestamo,id_usuario, monto_solicitado,id_estado,valor_cuotas,cant_cuotas) 
         VALUES ('$id_prestamo','$id_usuario', '$monto_solicitado', '$id_estado', '$valor_cuotas','$cant_cuotas')");
         $insertSQL->execute();
-        echo '<script>alert ("registro exitoso"); </script>';
-        echo '<script>window.location="usuarios.php"</script>';
+        echo '<script>alert ("Solicitud Prestamo Registrada con Exito"); </script>';
+        echo '<script>window.location="solic_prestamo.php"</script>';
       }
     }
 
@@ -113,7 +113,7 @@
 					</div>
 
 
-                    <div class="wrap-input100" data-validate="Ingrese Valor Cuotas">
+                    <div class="wrap-input100" ="Ingrese Valor Cuotas">
     					<input class="input100" type="number" name="valor_cuotas" id="valor_cuotas" placeholder="Valor Cuotas" readonly>
     					<span class="focus-input100"></span>
     					<span class="symbol-input100">
@@ -132,15 +132,6 @@
 					<div class="container-login100-form-btn">
 					<input class="login100-form-btn" type="submit" name="validar" value="Registrar">
 					<input type="hidden" name="MM_insert" value="formreg">
-					</div>
-
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							
-						</span>
-						<a class="txt2" href="admin.php">
-							Volver
-						</a>
 					</div>
 				</form>
 			</div>
