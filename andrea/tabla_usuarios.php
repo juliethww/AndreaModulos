@@ -26,6 +26,11 @@ $con = $db->conectar();
                     <th>Correo</th>
                     <th>Tipo Usuario</th>
                     <th>NIT Empresa</th>
+                    <th>
+                <a href="admin.php">REGRESAR</a>
+                </th>
+
+
                 </tr>
             </thead>
             <tbody>

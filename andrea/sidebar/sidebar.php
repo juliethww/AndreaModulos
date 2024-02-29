@@ -3,12 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/sidebar.css">
     <title>Sidebar</title>
 </head>
 <body id="body-pd">
     <header class="header" id="header">
         <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-        <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
+                <a href="../andrea/tabla_usuarios.php" class="nav_link"> 
+					<i class='bx bx-user nav_icon'></i> 
+						<span class="nav_name"> REGISTROS DE USUARIOS</span> </a>
+
+                <a href="../andrea/tabla_tipo_usu.php" class="nav_link"> 
+					<i class='bx bx-user nav_icon'></i> 
+						<span class="nav_name">TIPOS DE USUARIOS</span> </a>
+
+                <a href="../andrea/tabla_permisos.php" class="nav_link"> 
+					<i class='bx bx-user nav_icon'></i> 
+						<span class="nav_name">PERMISOS</span> </a>
+
+                <a href="../andrea/tabla_prestamos.php" class="nav_link"> 
+					<i class='bx bx-user nav_icon'></i> 
+						<span class="nav_name">SOLICITUDES DE PRESTAMO</span> </a>
+
+
     </header>
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
@@ -16,6 +33,10 @@
                 <div class="nav_list"> <a href="../andrea/admin.php" class="nav_link active"> 
 					<i class='bx bx-grid-alt nav_icon'></i> 
                     <span class="nav_name">Inicio</span></a>
+
+                    <a class="nav_link">
+                    <i class='bx bx-user nav_icon'></i> 
+						<span class="nav_name">-Formularios-</span> </a>
 
 
 					<a href="../andrea/usuario.php" class="nav_link"> 

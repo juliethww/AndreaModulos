@@ -21,6 +21,9 @@ $con = $db->conectar();
                 <tr>
                     <th>ID Tipo Usuario</th>
                     <th>Tipo Usuario </th>
+                    <th>
+                <a href="admin.php">REGRESAR</a>
+                </th>
                 </tr>
             </thead>
             <tbody>

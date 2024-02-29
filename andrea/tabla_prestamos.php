@@ -25,6 +25,9 @@ $con = $db->conectar();
                     <th>Estado</th>
                     <th>Valor Cuotas</th>
                     <th>Cantidad Cuotas</th>
+                    <th>
+                <a href="admin.php">REGRESAR</a>
+                </th>
                 </tr>
             </thead>
             <tbody>

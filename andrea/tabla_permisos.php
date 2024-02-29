@@ -21,6 +21,9 @@ $con = $db->conectar();
                 <tr>
                     <th>ID Permiso</th>
                     <th>Tipo Permiso </th>
+                    <th>
+                <a href="admin.php">REGRESAR</a>
+                </th>
                 </tr>
             </thead>
             <tbody>
