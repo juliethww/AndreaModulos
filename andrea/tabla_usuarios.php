@@ -27,10 +27,8 @@ $con = $db->conectar();
                     <th>Tipo Usuario</th>
                     <th>NIT Empresa</th>
                     <th>
-                <a href="admin.php">REGRESAR</a>
+                    <a href="admin.php">REGRESAR</a>
                 </th>
-
-
                 </tr>
             </thead>
             <tbody>
@@ -51,15 +49,10 @@ $con = $db->conectar();
                     echo "<td>{$fila['correo']}</td>";
                     echo "<td>{$fila['tipo_usuario']}</td>";
                     echo "<td>{$fila['nit_empresa']}</td>";
-                    
+                    echo "<td><a href='update_usuario.php?id={$fila['id_usuario']}' class='btn' onclick=\"window.open('update_usuario.php?id={$fila['id_usuario']}','','width=500,height=500,toolbar=NO'); return false;\">Actualizar</a></td>";
+                    echo "</tr>";
                 }
-                
                 ?>
-                 <td>
-                <a href="update_usuario.php?id=<?php echo $fila['id_usuario']; ?>" class="btn" onclick="window.open('update_usuario.php?id=<?php echo $fila['id_usuario']; ?>','','width=500,height=500,toolbar=NO'); return false;">Actualizar</a>
-                
-                </td>
-
             </tbody>
         </table>
     </div>
