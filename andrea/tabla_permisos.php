@@ -20,10 +20,10 @@ $con = $db->conectar();
             <thead>
                 <tr>
                     <th>ID Permiso</th>
-                    <th>Tipo Permiso </th>
+                    <th>Tipo Permiso</th>
                     <th>
-                <a href="admin.php">REGRESAR</a>
-                </th>
+                        <a href="admin.php">REGRESAR</a>
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -37,8 +37,9 @@ $con = $db->conectar();
             <tr>
                 <td><?php echo $fila['id_tipo_permiso'] ?></td>
                 <td><?php echo $fila['tipo_permiso'] ?></td>
-
-
+                <td>
+                    <a href='update_tipo_permiso.php?id=<?php echo $fila['id_tipo_permiso'] ?>' class='btn' onclick="window.open('update_tipo_permiso.php?id=<?php echo $fila['id_tipo_permiso'] ?>','','width=500,height=500,toolbar=NO'); return false;">Actualizar</a>
+                </td>
             </tr>
             <?php
                 }

@@ -4,26 +4,26 @@ require_once("../conexion/conexion.php");
 $db = new Database();
 $con = $db->conectar();
 
-$sql = $con -> prepare ("SELECT * FROM tipos_usuarios WHERE id_tipo_usuario = '".$_GET['id']."'");
+$sql = $con -> prepare ("SELECT * FROM tipo_permiso WHERE id_tipo_permiso = '".$_GET['id']."'");
 $sql -> execute();
 $usua = $sql -> fetch();
 ?>
 
 <?php
 if (isset($_POST["update"])) {
-    $id_tipo_usuario = $_POST['id_tipo_usuario'];
-    $tipo_usuario = $_POST['tipo_usuario'];
-    $updateSQL = $con->prepare("UPDATE tipos_usuarios SET tipo_usuario = '$tipo_usuario' WHERE id_tipo_usuario = '".$_GET['id']."'");
+    $id_tipo_permiso = $_POST['id_tipo_permiso'];
+    $tipo_permiso = $_POST['tipo_permiso'];
+    $updateSQL = $con->prepare("UPDATE tipo_permiso SET tipo_permiso = '$tipo_permiso' WHERE id_tipo_permiso = '".$_GET['id']."'");
 
     $updateSQL->execute();
     echo '<script>alert ("Actualización Exitosa");</script>';
 } elseif (isset($_POST["delete"])) { 
-    $id_tipo_usuario = $_POST['id_tipo_usuario'];
+    $id_tipo_permiso = $_POST['id_tipo_permiso'];
     
-    $deleteSQL = $con->prepare("DELETE FROM tipos_usuarios WHERE id_tipo_usuario = ?");
-    $deleteSQL->execute([$id_tipo_usuario]);
+    $deleteSQL = $con->prepare("DELETE FROM tipo_permiso WHERE id_tipo_permiso = ?");
+    $deleteSQL->execute([$id_tipo_permiso]);
     echo '<script>alert("Registro Eliminado Exitosamente");</script>';
-    header('Location: tabla_tipo_usu.php');
+    header('Location: tabla_permisos.php');
     exit;
 }
 ?>
@@ -49,12 +49,12 @@ if (isset($_POST["update"])) {
         <form autocomplete="off" name="frm_consulta" method="POST">
             <tr>
                 <td>ID</td>
-                <td><input name="id_tipo_usuario" value="<?php echo $usua['id_tipo_usuario']; ?>" readonly> </td>
+                <td><input name="id_tipo_permiso" value="<?php echo $usua['id_tipo_permiso']; ?>" readonly> </td>
             </tr>
 
             <tr>
                 <td>Tipo Usuario</td>
-                <td><input name ="tipo_usuario" value="<?php echo $usua['tipo_usuario']?>" ></td>
+                <td><input name ="tipo_permiso" value="<?php echo $usua['tipo_permiso']?>" ></td>
             </tr>
 
 
