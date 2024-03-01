@@ -91,13 +91,14 @@
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Ingrese su Nombre">
-						<input class="input100" type="text" name="nombre" id="nombre" placeholder="Nombre">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
+					<div class="wrap-input100 validate-input" data-validate="Ingrese su Nombre">
+    					<input class="input100" type="text" name="nombre" id="nombre" placeholder="Nombre" pattern="[A-Za-zÑñÁáÉéÍíÓóÚú\s]+" title="Solo se permiten letras y espacios">
+    					<span class="focus-input100"></span>
+    					<span class="symbol-input100">
+        					<i class="fa fa-envelope" aria-hidden="true"></i>
+    					</span>
 					</div>
+
 
 					<div class="wrap-input100 validate-input">
 					<span class="focus-input100"></span>
