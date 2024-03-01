@@ -21,9 +21,7 @@ $con = $db->conectar();
                 <tr>
                     <th>ID Tipo Usuario</th>
                     <th>Tipo Usuario </th>
-                    <th>
-                <a href="admin.php">REGRESAR</a>
-                </th>
+                    <th><a href="admin.php">REGRESAR</a></th>
                 </tr>
             </thead>
             <tbody>
@@ -37,8 +35,7 @@ $con = $db->conectar();
             <tr>
                 <td><?php echo $fila['id_tipo_usuario'] ?></td>
                 <td><?php echo $fila['tipo_usuario'] ?></td>
-
-
+                <td><a href='update_tipo_usu.php?id=<?php echo $fila['id_tipo_usuario'] ?>' class='btn' onclick="window.open('update_tipo_usu.php?id=<?php echo $fila['id_tipo_usuario'] ?>','','width=500,height=500,toolbar=NO'); return false;">Actualizar</a></td>
             </tr>
             <?php
                 }

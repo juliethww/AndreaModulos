@@ -49,7 +49,6 @@ if (isset($_POST["update"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/tipo_usu.css">
     <title>Actualizar datos</title>
 </head>
 
@@ -69,7 +68,7 @@ if (isset($_POST["update"])) {
             <tr>
                 <td>Cargo</td>
                 <td>
-                    <select class="input100" name="id_tipo_cargo" id="id_tipo_cargo">
+                    <select class="form-control" name="id_tipo_cargo" id="id_tipo_cargo">
                         <option value="">Seleccione un Cargo</option>
                         <?php
                         $control = $con->prepare("select * from tipo_cargo where id_tipo_cargo ");

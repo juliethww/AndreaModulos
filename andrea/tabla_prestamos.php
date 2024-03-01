@@ -45,6 +45,7 @@ $con = $db->conectar();
                     echo "<td>" . $row['estado'] . "</td>";  
                     echo "<td>" . $row['valor_cuotas'] . "</td>";
                     echo "<td>" . $row['cant_cuotas'] . "</td>";
+                    echo "<td><a href='update_prestamo.php?id={$row['id_usuario']}' class='btn' onclick=\"window.open('update_prestamo.php?id={$row['id_usuario']}','','width=500,height=500,toolbar=NO'); return false;\">Actualizar</a></td>";
                     echo "</tr>"; 
                 }
             } 

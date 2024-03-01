@@ -84,7 +84,6 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese su documento	">
-					<label for="exampleInputEmail1" class="form-label">Documento</label>
 						<input class="input100" type="number" name="id_usuario" id="id_usuario" placeholder="Documento">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -132,8 +131,6 @@
 						</select>
 					</div>
 
-
-					
 
 					<div class="wrap-input100 validate-input" data-validate="Ingrese su Correo">
 						<input class="input100" type="text" name="correo" id="correo" placeholder="Correo Electronico">
