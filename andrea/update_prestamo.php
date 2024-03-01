@@ -12,15 +12,16 @@ $usua = $sql->fetch();
 <?php
 if (isset($_POST["update"])) {
     $id_prestamo= $_POST['id_prestamo'];
-    $id_usuario= $_POST['id_usuario_hidden']; // Obtén el valor desde el campo oculto
+    $id_usuario= $_POST['id_usuario'];
     $monto_solicitado= $_POST['monto_solicitado'];
     $id_estado= $_POST['id_estado'];
-    $valor_cuotas= $_POST['valor_cuotas_hidden']; // Obtén el valor desde el campo oculto
+    $valor_cuotas= $_POST['valor_cuotas']; 
     $cant_cuotas= $_POST['cant_cuotas'];
-    $updateSQL = $con->prepare("UPDATE solic_prestamo SET id_usuario ='$id_usuario', monto_solicitado = '$monto_solicitado', id_estado = '$id_estado', valor_cuotas = '$valor_cuotas', cant_cuotas = '$cant_cuotas' WHERE id_prestamo = '" . $_GET['id'] . "'");
+    $updateSQL = $con->prepare("UPDATE solic_prestamo SET id_usuario ='$id_usuario', monto_solicitado = '$monto_solicitado', id_estado = '$id_estado', valor_cuotas = '$valor_cuotas', cant_cuotas = '$cant_cuotas' WHERE id_usuario = '" . $_GET['id'] . "'");
 
     $updateSQL->execute();
     echo '<script>alert("Actualización Exitosa");</script>';
+    echo '<script>window.close();</script>';
 } elseif (isset($_POST["delete"])) {
     $id_prestamo = $_POST['id_prestamo'];
 
@@ -61,8 +62,6 @@ if (isset($_POST["update"])) {
             <tr>
                 <td>Docuemnto</td>
                 <td><input name="id_usuario" value="<?php echo $usua['id_usuario'] ?>" readonly></td>
-                <!-- Campo oculto para id_usuario -->
-                <input type="hidden" name="id_usuario_hidden" value="<?php echo $usua['id_usuario'] ?>">
             </tr>
 
             <tr>
@@ -87,9 +86,7 @@ if (isset($_POST["update"])) {
 
             <tr>
                 <td>Valor Cuota</td>
-                <td><input name="valor_cuotas" value="<?php echo $usua['valor_cuotas'] ?>" readonly></td>
-                <!-- Campo oculto para valor_cuotas -->
-                <input type="hidden" name="valor_cuotas_hidden" value="<?php echo $usua['valor_cuotas'] ?>">
+                <td><input name="valor_cuotas" value="<?php echo $usua['valor_cuotas'] ?>" ></td>
             </tr>
 
             <tr>
