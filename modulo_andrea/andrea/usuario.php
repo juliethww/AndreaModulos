@@ -83,7 +83,7 @@
 						Usuarios
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Ingrese su documento	">
+					<div class="wrap-input100 validate-input" data-validate = "Ingrese su Documento	">
 						<input class="input100" type="number" name="id_usuario" id="id_usuario" placeholder="Documento">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
